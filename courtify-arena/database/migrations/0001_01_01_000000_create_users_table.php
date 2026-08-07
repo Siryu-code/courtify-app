@@ -13,12 +13,22 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('no_hp');
             $table->string('password');
-            $table->rememberToken();
+            $table->string('foto_profil')->nullable();
+            $table->enum('role', ['admin', 'customer'])->default('customer');
+    
+            // Bawaan Laravel yang sebaiknya tetap dipertahankan
+            $table->timestamp('email_verified_at')->nullable(); 
+            $table->rememberToken(); 
+    
+            // Timestamps (created_at & updated_at)
             $table->timestamps();
+    
+            // Ini untuk delete_at (nullable, timestamp) - Fitur Soft Deletes Laravel
+            $table->softDeletes(); 
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
