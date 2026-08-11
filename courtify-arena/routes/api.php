@@ -3,6 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VenueController;
+use App\Http\Controllers\PromoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BookingController;
+
 // Public routes (tanpa token)
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
