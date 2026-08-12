@@ -1,4 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import Home from '@/pages/Home.vue'
+import PromoPage from '@/pages/PromoPage.vue'
+import HistoryPage from '@/pages/HistoryPage.vue'
+import ProfilePage from '@/pages/ProfilePage.vue'
+import VenueDetail from '@/pages/booking/VenueDetail.vue'
+import SetSchedule from '@/pages/booking/SetSchedule.vue'
+import Checkout from '@/pages/booking/Checkout.vue'
+import BookingSuccess from '@/pages/booking/BookingSuccess.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,3 +25,13 @@ const router = createRouter({
 })
 
 export default router
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem('auth_token')
+  
+  if (to.meta.requiresAuth && !token) {
+    // Belum login, redirect ke home atau show login modal
+    next('/')
+  } else {
+    next()
+  }
+})

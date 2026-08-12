@@ -1,0 +1,118 @@
+/* ============================================
+   Courtify Arena - Global Styles
+   Mengandalkan Bootstrap 5 yang sudah di-import di main.js
+   ============================================ */
+
+/* ---------- CSS Custom Properties (Variables) ---------- */
+:root {
+  --crt-primary: #0d6efd;
+  --crt-primary-rgb: 13, 110, 253;
+  --crt-bg-light: #F8F9FA;
+  --crt-text-dark: #212529;
+  --crt-white: #FFFFFF;
+  --crt-border: #E0E0E0;
+  --crt-gray: #6C757D;
+
+  /* Spacing consistent */
+  --crt-space-xs: 0.25rem;
+  --crt-space-sm: 0.5rem;
+  --crt-space-md: 1rem;
+  --crt-space-lg: 1.5rem;
+  --crt-space-xl: 2rem;
+}
+
+/* ---------- Reset / Normalize tambahan ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--crt-text-dark);
+  background-color: var(--crt-bg-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pastikan konten tidak tertutup fixed bottom navbar */
+/* Utility class bisa ditambahkan di layout parent nanti */
+body.has-bottom-navbar {
+  padding-bottom: 60px; /* tinggi BottomNavbar */
+}
+
+/* ---------- Placeholder Hero Section ---------- */
+/* User akan masukkan gambar sendiri, jadi ini hanya area kosong dengan background */
+.hero-placeholder {
+  background-color: #e9ecef;
+  background-image: linear-gradient(135deg, rgba(13,110,253,0.05) 0%, rgba(13,110,253,0.1) 100%);
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crt-gray);
+  font-size: 1rem;
+  border-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .hero-placeholder {
+    min-height: 320px;
+    border-radius: 0.5rem;
+    margin: var(--crt-space-md);
+  }
+}
+
+/* ---------- Utility Classes (tambahan dari Bootstrap) ---------- */
+/* Margin / Padding konsisten */
+.mb-section {
+  margin-bottom: var(--crt-space-lg);
+}
+
+.mt-section {
+  margin-top: var(--crt-space-lg);
+}
+
+.p-section {
+  padding: var(--crt-space-md);
+}
+
+/* Untuk container sempit di mobile, melebar di desktop */
+.container-custom {
+  width: 100%;
+  padding-right: var(--crt-space-md);
+  padding-left: var(--crt-space-md);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container-custom {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-custom {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-custom {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-custom {
+    max-width: 1140px;
+  }
+}
+
+/* Tambahan: smooth transition untuk hover umum */
+a, button {
+  transition: all 0.2s ease;
+}
